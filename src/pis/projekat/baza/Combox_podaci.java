@@ -1,61 +1,59 @@
 
 package pis.projekat.baza;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import static pis.projekat.baza.Konekcija.PASSWORD;
 import static pis.projekat.baza.Konekcija.URL;
-import static pis.projekat.baza.Konekcija.USERNAME;
 
 
 
 public class Combox_podaci {
-    
     private String element;
     private Connection con;
     private Statement s;
     private ResultSet rs;
-    private DefaultComboBoxModel DLM;
+    private DefaultComboBoxModel dlm;
 
  
-    public Combox_podaci(JComboBox kombo, int slucaj, String query){
-        try{
-        
-            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+    public Combox_podaci(JComboBox kombo, int slucaj, String query) {
+        try {
+            con = DriverManager.getConnection(URL);
             s = con.createStatement();
             rs = s.executeQuery(query);
-            
-            DLM = new DefaultComboBoxModel();
+            dlm = new DefaultComboBoxModel();
             
             //Dodatne opcije
-            if(slucaj==1){
-            DLM.addElement("--Niste izabrali--");
-            DLM.addElement(""); 
+            if(slucaj==1) {
+                dlm.addElement("--Niste izabrali--");
+                dlm.addElement(""); 
             }
-            else {
-            }
-        
+   
             while (rs.next()) {                
-                
-            for(int i=1;i<2;i++)
-            element=rs.getString(i);
-            DLM.addElement(element);
+                for(int i=1;i<2;i++)
+                    element = rs.getString(i);
+                dlm.addElement(element);
             }
-            
-            kombo.setModel(DLM); }
-            
-                               
-        catch(SQLException ex){
+            kombo.setModel(dlm);
+        }           
+        catch(SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.toString());
         }
-             
-         }
-
- 
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Combox_podaci.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }
 }

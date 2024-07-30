@@ -1,105 +1,244 @@
 
 package pis.projekat.baza;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static pis.projekat.baza.Konekcija.PASSWORD;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static pis.projekat.baza.Konekcija.URL;
-import static pis.projekat.baza.Konekcija.USERNAME;
 
 
 
 public class Manipulacije_podataka {
+    private Connection con;
+    private Statement s;
+    private ResultSet rs;
+    private int sifra_kupca;
+    private String sql, kupac_sql, boja_sql, sifra_boje, materijal_sql, sifra_materijala;
     
-    private static Connection con;
-    private static Statement s;
-    private static String sql;
-    
-  //Metod za garanciju
-    public static Boolean dodaj(String naziv, String adresa, String telefon,String email,String sifra) {
-        sql = "INSERT INTO garancija(Naziv_kupca,Adresa_kupca,Kontakt_telefon_kupca,Email,Sifra_garantnog_lista) VALUES('" + naziv +"','" + adresa+ "','" + telefon + "','" + email + "','" + sifra + "')";
+
+
+    public Boolean posalji_reklamaciju(boolean ima_garanciju, String naziv, String adresa, String telefon, String email, String sifra, String problem) {
         try {
-            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            s = con.prepareStatement(sql);
+            con = DriverManager.getConnection(URL);
+            s = con.createStatement();
+            sifra_kupca(naziv, adresa, telefon, email);
+            if(ima_garanciju)
+                sql = "INSERT INTO reklamacija(Sifra_kupca, Sifra_garantnog_lista, Opis_problema) " +
+                      "VALUES(" + sifra_kupca +",'" + sifra + "','" + problem + "')";
+            else
+                sql = "INSERT INTO reklamacija(Sifra_kupca, Sifra_racuna, Opis_problema) " +
+                      "VALUES(" + sifra_kupca +",'" + sifra + "','" + problem + "')";
             s.execute(sql);
-            
-            return true;  }
+            return true;  
+        }
         catch (SQLException ex) {
             ex.printStackTrace();  
-            return false;   } 
+            return false;   
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
     }
-    
-  //Metod za reklamaciju proizvoda
-    public static Boolean dodaj(String naziv, String adresa, String telefon,String email,String sifra,String problem) {
-        sql = "INSERT INTO reklamacija2(Naziv_kupca,Adresa_kupca,Kontakt_telefon_kupca,Email,Sifra_racuna,Opis_nastalog_problema) VALUES('" + naziv +"','" + adresa+ "','" + telefon + "','" + email + "','" + sifra + "','" + problem + "')";
+
+    public Boolean dodaj_prodavnicu(String sifra, String grad, String adresa, String telefon, String vreme) {
+        sql = "INSERT INTO prodajno_mesto(Sifra_prodajnog_mesta, Grad, Adresa_prodajnog_mesta, Kontakt_prodavnice, Radno_vreme) " +
+              "VALUES ('" + sifra + "','" + grad + "','" + adresa + "','" + telefon + "','" + vreme + "')";
         try {
-            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            s = con.prepareStatement(sql);
-            s.execute(sql);
-            
-            return true; }
-        catch (SQLException ex) {
-            ex.printStackTrace(); 
-            return false; }
-    }
-  
-  //Metod za prodavnice
-    public static Boolean dodaj2(String sifra, String mesto, String adresa, String telefon, String vreme) {
-        sql = "INSERT INTO prodajno_mesto (Sifra_prodajnog_mesta,Mesto,Adresa_prodajnog_mesta,Kontakt_prodavnice,Radno_vreme) Values ('" + sifra + "','" + mesto + "','" + adresa + "','" + telefon + "','" + vreme + "')";
-        try {
-            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            s = con.prepareStatement(sql);
+            con = DriverManager.getConnection(URL);
+            s = con.createStatement();
             s.execute(sql);
             return true;
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
             ex.printStackTrace();
-            return false;  }
+            return false;  
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
     }  
   
-  //Metod za porucivanje proizvoda
-    public static Boolean dodaj(String naziv, String adresa, String telefon,String email,String visina,String precnik,String zapremina,String kolicina,String tip,String boja,String materijal) {
-        sql = "INSERT INTO porudzbenica(Naziv_kupca,Adresa_kupca,Kontakt_telefon_kupca,Email,Visina,Precnik,Zapremina,Kolicina_proizvoda,Tip_proizvoda,Naziv_boje,Naziv_materijala) VALUES('" + naziv +"','" + adresa+ "','" + telefon + "','" + email + "','" + visina + "','" + precnik + "','" + zapremina + "','" + kolicina + "','" + tip + "','" + boja + "','" + materijal + "')";
+    public Boolean kreiraj_porudzbinu(String naziv, String adresa, String telefon, String email, String visina, String precnik, String zapremina,
+                                      String kolicina, String tip, String boja, String materijal) {
         try {
-            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            s = con.prepareStatement(sql);
-            s.execute(sql);
+            sifra_kupca(naziv, adresa, telefon, email);
+            sifra_boje(boja);
+            sifra_materijala(materijal);
             
-            return true;  }
+            con = DriverManager.getConnection(URL);    
+            s = con.createStatement();
+            
+            //sifra_kupca = 1;
+            //sifra_boje = "SB01";
+            //sifra_materijala = "SM01";
+            
+            sql = "INSERT INTO porudzbenica(Sifra_kupca, Visina, Precnik, Zapremina, Kolicina_proizvoda, Tip_proizvoda, Sifra_boje, Sifra_materijala) " +
+                  "VALUES(" + sifra_kupca +",'" + visina + "','" + precnik + "','" + zapremina + "','" + kolicina + "','" + tip + "','" + sifra_boje + "','" + sifra_materijala + "');"; 
+            s.execute(sql);
+            return true;  
+        }
         catch (SQLException ex) {
             ex.printStackTrace(); 
-            return false; }
+            return false; 
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
     }
         
-  //Metod za prodavnice
-    public static Boolean brisanje(String sifra){
-        sql="DELETE FROM prodajno_mesto WHERE Sifra_prodajnog_mesta ='"+sifra+"'";
+    public Boolean obrisi_prodavnicu(String sifra) {
+        sql = "DELETE FROM prodajno_mesto " +
+              "WHERE Sifra_prodajnog_mesta ='"+sifra+"'";
         try {
-            con=DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            s=con.prepareStatement(sql);
+            con = DriverManager.getConnection(URL);
+            s = con.createStatement();
             s.execute(sql);
-            
-            return true;   }
-            
-        catch(SQLException ex){
+            return true;   
+        }
+        catch(SQLException ex) {
             ex.printStackTrace(); 
-            return false; }
+            return false; 
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
     }
     
-  //Metod za prodavnice
-    public static Boolean azuriraj(String sifra, String mesto, String adresa, String telefon, String vreme) {
-        sql = "UPDATE prodajno_mesto SET Mesto ='" + mesto + "',Adresa_prodajnog_mesta='" + adresa + "',Kontakt_prodavnice='" + telefon + "',Radno_vreme='" + vreme + "' WHERE Sifra_prodajnog_mesta='" + sifra + "'";
+    public Boolean azuriraj_prodavnicu(String sifra, String grad, String adresa, String telefon, String vreme) {
+        sql = "UPDATE prodajno_mesto " +
+              "SET Grad ='" + grad + "',Adresa_prodajnog_mesta='" + adresa + "',Kontakt_prodavnice='" + telefon + "',Radno_vreme='" + vreme + "' " +
+              "WHERE Sifra_prodajnog_mesta='" + sifra + "'";
         try {
-            con = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+            con = DriverManager.getConnection(URL);
             s = con.prepareStatement(sql);
             s.execute(sql);
-            
-            return true;  } 
+            return true;  
+        } 
         catch (SQLException ex) {
             ex.printStackTrace();
-            return false;   }
+            return false;   
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
     }
     
-  
+    //Helper methoda za dobijanje sifre kupca na osnovu unetih podataka
+    public void sifra_kupca(String naziv, String adresa, String telefon, String email) {
+        kupac_sql = "SELECT Sifra_kupca " +
+                    "FROM kupac " +
+                    "WHERE (Naziv_kupca = '"+naziv+"' AND Adresa_kupca = '"+adresa+"') OR Kontakt_telefon_kupca = '"+telefon+"' OR Email = '"+email+"'";
+        try {
+            con = DriverManager.getConnection(URL);
+            s = con.createStatement();
+            rs = s.executeQuery(kupac_sql);
+            if(rs.next())
+                sifra_kupca = rs.getInt(1);
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }
+    
+    //Helper methoda za dobijanje sifre boje na osnovu unetih podataka
+    public void sifra_boje(String boja) {
+        boja_sql = "SELECT Sifra_boje " +
+                   "FROM boja " +
+                   "WHERE Naziv_boje = '"+boja+"'";
+        try {
+            con = DriverManager.getConnection(URL);
+            s = con.createStatement();
+            rs = s.executeQuery(boja_sql);
+            if(rs.next())
+                sifra_boje = rs.getString(1);
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }
+    
+    //Helper methoda za dobijanje sifre materijala na osnovu unetih podataka
+    public void sifra_materijala(String materijal) {
+        materijal_sql = "SELECT Sifra_materijala " +
+                        "FROM materijal " +
+                        "WHERE Naziv_materijala = '"+materijal+"'";
+        try {
+            con = DriverManager.getConnection(URL);
+            s = con.createStatement();
+            rs = s.executeQuery(materijal_sql);
+            if(rs.next())
+                sifra_materijala = rs.getString(1);
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally {
+            try {
+                con.close();
+                s.close();
+                rs.close();
+            } 
+            catch (SQLException ex) {
+                Logger.getLogger(Manipulacije_podataka.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }
 }

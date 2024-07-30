@@ -1,6 +1,5 @@
 
 package pis.projekat;
-
 import pis.projekat.email.Email;
 import pis.projekat.baza.Upiti_baza;
 import pis.projekat.baza.Combox_podaci;
@@ -15,15 +14,16 @@ import javax.swing.table.DefaultTableModel;
 public class Narudzbenica extends JFrame {
     private DefaultTableModel dm;
     private String dobavljaci;
-    private int index;
+    private int dobavljaci_index;
    
+    
     public Narudzbenica() {
         initComponents();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         
         //Dobijanje imena dobavljaca
-        new Combox_podaci(jComboBox1, 1,"Select DISTINCT Naziv_dobavljaca FROM dobavljaci ORDER BY Naziv_dobavljaca");
+        new Combox_podaci(dobavljaci_combo, 1, "Select DISTINCT Naziv_dobavljaca FROM dobavljaci ORDER BY Naziv_dobavljaca");
     }
     
 
@@ -35,34 +35,34 @@ public class Narudzbenica extends JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        materijal_check = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        oprema_check = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        delovi_check = new javax.swing.JCheckBox();
+        dobavljaci_combo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        adresa_txt = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        grad_txt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        telefon_txt = new javax.swing.JTextField();
+        email_txt = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        oprema_tabela = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        materijal_tabela = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        delovi_tabela = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        opis_masine = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        pdf_btn = new javax.swing.JButton();
+        email_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,9 +75,9 @@ public class Narudzbenica extends JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Izaberite vrstu narudzbine");
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        materijal_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                materijal_checkActionPerformed(evt);
             }
         });
 
@@ -87,37 +87,37 @@ public class Narudzbenica extends JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Proizvodna oprema");
 
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        oprema_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                oprema_checkActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("                Delovi");
 
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        delovi_check.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                delovi_checkActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        dobavljaci_combo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        dobavljaci_combo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                dobavljaci_comboItemStateChanged(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Adresa");
 
-        jTextField1.setEditable(false);
+        adresa_txt.setEditable(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Grad");
 
-        jTextField2.setEditable(false);
+        grad_txt.setEditable(false);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Telefon");
@@ -125,13 +125,13 @@ public class Narudzbenica extends JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Email");
 
-        jTextField3.setEditable(false);
+        telefon_txt.setEditable(false);
 
-        jTextField4.setEditable(false);
+        email_txt.setEditable(false);
 
-        jTable2.setAutoCreateRowSorter(true);
-        jTable2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        oprema_tabela.setAutoCreateRowSorter(true);
+        oprema_tabela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        oprema_tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -163,16 +163,16 @@ public class Narudzbenica extends JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        oprema_tabela.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                oprema_tabelaMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPane4.setViewportView(oprema_tabela);
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        materijal_tabela.setAutoCreateRowSorter(true);
+        materijal_tabela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        materijal_tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -204,11 +204,11 @@ public class Narudzbenica extends JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(materijal_tabela);
 
-        jTable3.setAutoCreateRowSorter(true);
-        jTable3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        delovi_tabela.setAutoCreateRowSorter(true);
+        delovi_tabela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        delovi_tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -240,34 +240,34 @@ public class Narudzbenica extends JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(delovi_tabela);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Opis masine");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        opis_masine.setColumns(20);
+        opis_masine.setRows(5);
+        opis_masine.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(opis_masine);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel12.setText("Izaberite mašinu iz liste da vidite opis");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/pdf.png"))); // NOI18N
-        jButton1.setText(" PDF");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        pdf_btn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        pdf_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/pdf.png"))); // NOI18N
+        pdf_btn.setText(" PDF");
+        pdf_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                pdf_btnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/email.png"))); // NOI18N
-        jButton2.setText(" Pošalji Email");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        email_btn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        email_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/email.png"))); // NOI18N
+        email_btn.setText(" Pošalji Email");
+        email_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                email_btnActionPerformed(evt);
             }
         });
 
@@ -286,15 +286,15 @@ public class Narudzbenica extends JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
-                        .addComponent(jCheckBox1)
+                        .addComponent(materijal_check)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addGap(48, 48, 48)
-                        .addComponent(jCheckBox2)
+                        .addComponent(oprema_check)
                         .addGap(249, 249, 249)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
-                        .addComponent(jCheckBox3)
+                        .addComponent(delovi_check)
                         .addGap(174, 174, 174))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
@@ -307,8 +307,8 @@ public class Narudzbenica extends JFrame {
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
@@ -325,21 +325,21 @@ public class Narudzbenica extends JFrame {
                             .addComponent(jLabel2))
                         .addGap(130, 130, 130)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dobavljaci_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adresa_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(grad_txt, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(telefon_txt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(312, 312, 312)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pdf_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(email_btn)
                 .addGap(273, 273, 273))
         );
         layout.setVerticalGroup(
@@ -350,23 +350,23 @@ public class Narudzbenica extends JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dobavljaci_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adresa_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(grad_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefon_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -375,7 +375,7 @@ public class Narudzbenica extends JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox2)
+                            .addComponent(oprema_check)
                             .addComponent(jLabel5))
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,9 +388,9 @@ public class Narudzbenica extends JFrame {
                         .addContainerGap(123, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox1)
+                            .addComponent(materijal_check)
                             .addComponent(jLabel6)
-                            .addComponent(jCheckBox3)
+                            .addComponent(delovi_check)
                             .addComponent(jLabel4))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -402,117 +402,118 @@ public class Narudzbenica extends JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(pdf_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(email_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(43, 43, 43))))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    //Spajanje textfieldova sa Nazivima dobavljaca i popunjavanje tabela
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        index=jComboBox1.getSelectedIndex();
-        dobavljaci=jComboBox1.getSelectedItem().toString();
-        if(index!=0&&index!=1){
-        jTextField1.setText(new Upiti_baza().lista(dobavljaci).get(0));
-        jTextField2.setText(new Upiti_baza().lista(dobavljaci).get(1));
-        jTextField3.setText(new Upiti_baza().lista(dobavljaci).get(2));
-        jTextField4.setText(new Upiti_baza().lista(dobavljaci).get(3));
+    
+    private void dobavljaci_comboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dobavljaci_comboItemStateChanged
+        dobavljaci_index = dobavljaci_combo.getSelectedIndex();
+        dobavljaci = dobavljaci_combo.getSelectedItem().toString();
+        if(dobavljaci_index!=0 && dobavljaci_index!=1) {
+            adresa_txt.setText(new Upiti_baza().lista_dobavljaca(dobavljaci).get(0));
+            grad_txt.setText(new Upiti_baza().lista_dobavljaca(dobavljaci).get(1));
+            telefon_txt.setText(new Upiti_baza().lista_dobavljaca(dobavljaci).get(2));
+            email_txt.setText(new Upiti_baza().lista_dobavljaca(dobavljaci).get(3));
         }
         else {
-            jTextField1.setText("");jTextField2.setText("");jTextField3.setText("");jTextField4.setText("");
+            adresa_txt.setText("");grad_txt.setText("");telefon_txt.setText("");email_txt.setText("");
+        }
+     
+        if(oprema_check.isSelected()) {
+             oprema_tabela.setModel(new Tabele_baza().Oprema(dobavljaci));
+        }
+                
+        if(delovi_check.isSelected()) {
+             delovi_tabela.setModel(new Tabele_baza().Delovi(dobavljaci));
         }
         
-        if(jCheckBox2.isSelected()){
-             jTable2.setModel(new Tabele_baza().Oprema(dobavljaci));}
-                
-        if(jCheckBox3.isSelected()){
-             jTable3.setModel(new Tabele_baza().Delovi(dobavljaci));}
-        
-        if(jCheckBox1.isSelected()){
-             jTable1.setModel(new Tabele_baza().Materijal(dobavljaci));}  
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+        if(materijal_check.isSelected()) {
+             materijal_tabela.setModel(new Tabele_baza().Materijal(dobavljaci));
+        }  
+    }//GEN-LAST:event_dobavljaci_comboItemStateChanged
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        dobavljaci=jComboBox1.getSelectedItem().toString();
-        if(jCheckBox2.isSelected()){
-           jTable2.setModel(new Tabele_baza().Oprema(dobavljaci));}
+    private void oprema_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oprema_checkActionPerformed
+        dobavljaci = dobavljaci_combo.getSelectedItem().toString();
+        if(oprema_check.isSelected()) {
+           oprema_tabela.setModel(new Tabele_baza().Oprema(dobavljaci));
+        }
         else {
            dm = new DefaultTableModel();
            dm.addColumn("Proizvodna oprema");
            dm.addColumn("Unesite količinu");
-           jTable2.setModel(dm);
-         }
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+           oprema_tabela.setModel(dm);
+        }
+    }//GEN-LAST:event_oprema_checkActionPerformed
      
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        dobavljaci=jComboBox1.getSelectedItem().toString();
-        if(jCheckBox1.isSelected()){
-            jTable1.setModel(new Tabele_baza().Materijal(dobavljaci));}
+    private void materijal_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materijal_checkActionPerformed
+        dobavljaci = dobavljaci_combo.getSelectedItem().toString();
+        if(materijal_check.isSelected()) {
+           materijal_tabela.setModel(new Tabele_baza().Materijal(dobavljaci));}
         else {
             dm = new DefaultTableModel();
             dm.addColumn("Materijal");
             dm.addColumn("Unesite količinu");
-            jTable1.setModel(dm);
+            materijal_tabela.setModel(dm);
          }
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_materijal_checkActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        dobavljaci=jComboBox1.getSelectedItem().toString();
-        if(jCheckBox3.isSelected()){
-            jTable3.setModel(new Tabele_baza().Delovi(dobavljaci));
-           }
+    private void delovi_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delovi_checkActionPerformed
+        dobavljaci = dobavljaci_combo.getSelectedItem().toString();
+        if(delovi_check.isSelected()) {
+            delovi_tabela.setModel(new Tabele_baza().Delovi(dobavljaci));
+        }
         else {
             dm = new DefaultTableModel();
             dm.addColumn("Delovi");
             dm.addColumn("Unesite količinu");
-            jTable3.setModel(dm);
-         }
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+            delovi_tabela.setModel(dm);
+        }
+    }//GEN-LAST:event_delovi_checkActionPerformed
     
-    //Opis masine 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-    int column = 0;
-    int row = jTable2.getSelectedRow();
-    String naziv = jTable2.getModel().getValueAt(row, column).toString();
-    jTextArea1.setText(new Upiti_baza().Opismasine(naziv));
-    }//GEN-LAST:event_jTable2MouseClicked
+    private void oprema_tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oprema_tabelaMouseClicked
+        int column = 0;
+        int row = oprema_tabela.getSelectedRow();
+        String naziv = oprema_tabela.getModel().getValueAt(row, column).toString();
+        opis_masine.setText(new Upiti_baza().opis_masine(naziv));
+    }//GEN-LAST:event_oprema_tabelaMouseClicked
    
-    //PDF fajl 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void pdf_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pdf_btnActionPerformed
         String[] opcija = {"Da", "Ne"};
         int odgovor = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da napravite PDF dokument?", "PDF", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcija, opcija[1]);
-        if(odgovor==0){
-        new Pdf_dokument(jComboBox1, jTextField1, jTextField2, jTable1, jTable2, jTable3);
-        JOptionPane.showMessageDialog(null, "Uspešno ste napravili dokument pod imenom Metalac-nabavka.\nDokument se nalazi na vašem Desktopu.");
+        if(odgovor==0) {
+            new Pdf_dokument(dobavljaci_combo, adresa_txt, grad_txt, materijal_tabela, oprema_tabela, delovi_tabela);
+            JOptionPane.showMessageDialog(null, "Uspešno ste napravili dokument pod imenom Metalac-nabavka.pdf.\nDokument se nalazi na vašem Desktopu.");
         } 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_pdf_btnActionPerformed
     
-    //Email dugme
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     String[] to={jTextField4.getText()};
-      String[] opcija = {"Da", "Ne"};
-        int odgovor = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da pošaljete email poruku sa PDF dokumentom dobavljaču "+jComboBox1.getSelectedItem().toString()+"?", "Email", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcija, opcija[1]);
-        if(odgovor==0){
-        if(Email.posaljiemail("ivke1993@hotmail.com", "cedamrkonjic100", "Poštovani,\nU prilogu vam šaljemo PDF dokument.\n\nSrdačan pozdrav\n\nMetalac Posuđe", to)){
-        JOptionPane.showMessageDialog(null, "Uspešno ste poslali email poruku vašem dobavljaču.\n");
+    private void email_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_btnActionPerformed
+        String[] to = {email_txt.getText()};
+        String[] opcija = {"Da", "Ne"};
+        int odgovor = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da pošaljete email poruku sa PDF dokumentom dobavljaču "+dobavljaci_combo.getSelectedItem().toString()+"?", "Email", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcija, opcija[1]);
+        if(odgovor==0) {
+            if(Email.posalji_email("Poštovani,\nU prilogu vam šaljemo PDF dokument.\n\nSrdačan pozdrav\n\nMetalac Posuđe", to)) {
+                JOptionPane.showMessageDialog(null, "Uspešno ste poslali email poruku vašem dobavljaču.\n");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Došlo je do problema.Proverite da li ste izabrali dobavljača.\nPokušajte ponovo.");
+            }
         }
-        else{
-        JOptionPane.showMessageDialog(null, "Došlo je do problema.Proverite da li ste izabrali dobavljača.\nPokušajte ponovo.");
-        }
-       
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_email_btnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField adresa_txt;
+    private javax.swing.JCheckBox delovi_check;
+    private javax.swing.JTable delovi_tabela;
+    private javax.swing.JComboBox<String> dobavljaci_combo;
+    private javax.swing.JButton email_btn;
+    private javax.swing.JTextField email_txt;
+    private javax.swing.JTextField grad_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -530,14 +531,13 @@ public class Narudzbenica extends JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JCheckBox materijal_check;
+    private javax.swing.JTable materijal_tabela;
+    private javax.swing.JTextArea opis_masine;
+    private javax.swing.JCheckBox oprema_check;
+    private javax.swing.JTable oprema_tabela;
+    private javax.swing.JButton pdf_btn;
+    private javax.swing.JTextField telefon_txt;
     // End of variables declaration//GEN-END:variables
 }
 

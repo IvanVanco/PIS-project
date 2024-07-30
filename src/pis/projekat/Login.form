@@ -66,15 +66,15 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="oktogglebutton" min="-2" max="-2" attributes="0"/>
+                          <Component id="potvrdi_btn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="usernametextfield" pref="172" max="32767" attributes="0"/>
-                          <Component id="passwordtextfield" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="user_txt" pref="172" max="32767" attributes="0"/>
+                          <Component id="password_txt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="sektor_combo" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
@@ -82,7 +82,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="jToggleButton1" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="izadji_btn" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -97,24 +97,24 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="usernametextfield" min="-2" max="-2" attributes="0"/>
+                      <Component id="user_txt" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="passwordtextfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="password_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sektor_combo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jToggleButton1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="oktogglebutton" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="izadji_btn" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="potvrdi_btn" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
@@ -147,14 +147,14 @@
             <Property name="text" type="java.lang.String" value="Unesite &#x161;ifru"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="usernametextfield">
+        <Component class="javax.swing.JTextField" name="user_txt">
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="usernametextfieldKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="user_txtKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="passwordtextfield">
+        <Component class="javax.swing.JPasswordField" name="password_txt">
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JToggleButton" name="izadji_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
@@ -165,10 +165,10 @@
             <Property name="text" type="java.lang.String" value=" Izadji"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="izadji_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="oktogglebutton">
+        <Component class="javax.swing.JToggleButton" name="potvrdi_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
@@ -179,7 +179,7 @@
             <Property name="text" type="java.lang.String" value=" Potvrdi"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oktogglebuttontogglebuttonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="potvrdi_btntogglebuttonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -190,7 +190,7 @@
             <Property name="text" type="java.lang.String" value="Izaberite sektor"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="sektor_combo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>

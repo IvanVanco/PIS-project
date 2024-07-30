@@ -1,15 +1,19 @@
 
 package pis.projekat;
-
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static pis.projekat.Konfiguracija.app_korisnik;
+import static pis.projekat.Konfiguracija.app_lozinka;
+
+
 
 public class Login extends JFrame {
-    private String password; 
-    private String username;
+    private String lozinka; 
+    private String korisnik;
+
 
    
     public Login() {
@@ -20,7 +24,7 @@ public class Login extends JFrame {
     private void zatvaranje(){
         WindowEvent winClosing= new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosing);
-}
+    }
 
     
     @SuppressWarnings("unchecked")
@@ -31,12 +35,12 @@ public class Login extends JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        usernametextfield = new javax.swing.JTextField();
-        passwordtextfield = new javax.swing.JPasswordField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        oktogglebutton = new javax.swing.JToggleButton();
+        user_txt = new javax.swing.JTextField();
+        password_txt = new javax.swing.JPasswordField();
+        izadji_btn = new javax.swing.JToggleButton();
+        potvrdi_btn = new javax.swing.JToggleButton();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        sektor_combo = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -53,35 +57,35 @@ public class Login extends JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Unesite šifru");
 
-        usernametextfield.addKeyListener(new java.awt.event.KeyAdapter() {
+        user_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                usernametextfieldKeyTyped(evt);
+                user_txtKeyTyped(evt);
             }
         });
 
-        jToggleButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/cancel.png"))); // NOI18N
-        jToggleButton1.setText(" Izadji");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        izadji_btn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        izadji_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/cancel.png"))); // NOI18N
+        izadji_btn.setText(" Izadji");
+        izadji_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                izadji_btnActionPerformed(evt);
             }
         });
 
-        oktogglebutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        oktogglebutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/Ok.png"))); // NOI18N
-        oktogglebutton.setText(" Potvrdi");
-        oktogglebutton.addActionListener(new java.awt.event.ActionListener() {
+        potvrdi_btn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        potvrdi_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ikonice/Ok.png"))); // NOI18N
+        potvrdi_btn.setText(" Potvrdi");
+        potvrdi_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oktogglebuttontogglebuttonActionPerformed(evt);
+                potvrdi_btntogglebuttonActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Izaberite sektor");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nabavka", "Logistika", "Prodaja" }));
+        sektor_combo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        sektor_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nabavka", "Logistika", "Prodaja" }));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Pomoć");
@@ -116,19 +120,19 @@ public class Login extends JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(oktogglebutton)
+                        .addComponent(potvrdi_btn)
                         .addGap(61, 61, 61)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(usernametextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                        .addComponent(passwordtextfield)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(user_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                        .addComponent(password_txt)
+                        .addComponent(sektor_combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(izadji_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31))
         );
         jPanel1Layout.setVerticalGroup(
@@ -139,21 +143,21 @@ public class Login extends JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernametextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(user_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordtextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sektor_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oktogglebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(izadji_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(potvrdi_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -179,68 +183,63 @@ public class Login extends JFrame {
     
     
     //Izadji dugme
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void izadji_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izadji_btnActionPerformed
         zatvaranje(); 
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_izadji_btnActionPerformed
    
     //Potvrdi dugme
-    private void oktogglebuttontogglebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oktogglebuttontogglebuttonActionPerformed
+    private void potvrdi_btntogglebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvrdi_btntogglebuttonActionPerformed
+        lozinka = password_txt.getText();
+        korisnik = user_txt.getText();
 
-        password=passwordtextfield.getText();
-        username=usernametextfield.getText();
-
-        if(password.contains("root")&& username.contains("root") && jComboBox1.getSelectedItem().toString()=="Prodaja"){
+        if(lozinka.contains(app_lozinka)&& korisnik.contains(app_korisnik) && sektor_combo.getSelectedItem().toString()=="Prodaja") {
             zatvaranje();
-            Prodavnice p=new Prodavnice();
+            Prodavnica p = new Prodavnica();
             p.setVisible(true);
-
         }
-        else if(password.contains("root")&& username.contains("root") && jComboBox1.getSelectedItem().toString()=="Nabavka"){
+        else if(lozinka.contains(app_lozinka)&& korisnik.contains(app_korisnik) && sektor_combo.getSelectedItem().toString()=="Nabavka") {
             zatvaranje();
-            Narudzbenica n=new Narudzbenica();
-            n.setVisible(true);}
-        else {
-            JOptionPane.showMessageDialog(null,"Uneli ste pogrešno korisničko ime ili šifru.\nPritisnite potvrdi dugme i pokušajte ponovo.","Greška",JOptionPane.ERROR_MESSAGE);
-            usernametextfield.setText("");
-            passwordtextfield.setText("");
+            Narudzbenica n = new Narudzbenica();
+            n.setVisible(true);
         }
-    }//GEN-LAST:event_oktogglebuttontogglebuttonActionPerformed
+        else {
+            JOptionPane.showMessageDialog(null, "Uneli ste pogrešno korisničko ime ili šifru.\nPritisnite potvrdi dugme i pokušajte ponovo.", "Greška", JOptionPane.ERROR_MESSAGE);
+            user_txt.setText("");
+            password_txt.setText("");
+        }
+    }//GEN-LAST:event_potvrdi_btntogglebuttonActionPerformed
      
-    //Labela Pomoc
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        JOptionPane.showMessageDialog(null,"Ukoliko ste zaboravili korisničko ime ili lozinku, možete nas kontaktirati na:  \n\nEmail:  ivke1993@hotmail.com\nTelefon:  060/4512225","Pomoć",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Ukoliko ste zaboravili korisničko ime ili lozinku, možete nas kontaktirati na:  \n\nEmail:  ivke1993@hotmail.com\nTelefon:  060/4512225", "Pomoć", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jLabel5MouseClicked
    
-    //Labela Pomoc dobija plavu boju kad predjemo misom na nju
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
         jLabel5.setForeground(Color.blue);
     }//GEN-LAST:event_jLabel5MouseEntered
     
-    //Labela Pomoc dobija crnu boju
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_jLabel5MouseExited
     
-    //Kada kucam username mogu na enter da se prebacim na Textfield password
-    private void usernametextfieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernametextfieldKeyTyped
-        new Key_blokade().Username(evt, passwordtextfield);
-    }//GEN-LAST:event_usernametextfieldKeyTyped
+    private void user_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_txtKeyTyped
+        new Key_blokade().username_shortcut(evt, password_txt);
+    }//GEN-LAST:event_user_txtKeyTyped
 
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JToggleButton izadji_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton oktogglebutton;
-    private javax.swing.JPasswordField passwordtextfield;
-    private javax.swing.JTextField usernametextfield;
+    private javax.swing.JPasswordField password_txt;
+    private javax.swing.JToggleButton potvrdi_btn;
+    private javax.swing.JComboBox<String> sektor_combo;
+    private javax.swing.JTextField user_txt;
     // End of variables declaration//GEN-END:variables
 
 

@@ -72,18 +72,11 @@
     -->
     
     <target name="-post-jar">
-        <jar jarfile="dist/Pis_projekat.jar">
-            <zipfileset src="${dist.jar}" excludes="META-INF/*"/>
-            
+        <jar jarfile="Pis_projekat.jar">
             <zipfileset src="dist/lib/poi-3.15.jar" excludes="META-INF/*"/>
-            <zipfileset src="dist/lib/org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" excludes="META-INF/*"/>
-            <zipfileset src="dist/lib/mysql-connector-java-5.1.23-bin.jar" excludes="META-INF/*"/>
             <zipfileset src="dist/lib/mail.jar" excludes="META-INF/*"/>
-            <zipfileset src="dist/lib/javax.persistence_2.1.0.v201304241213.jar" excludes="META-INF/*"/>
             <zipfileset src="dist/lib/itextpdf-5.5.9.jar" excludes="META-INF/*"/>
-            <zipfileset src="dist/lib/eclipselink.jar" excludes="META-INF/*"/>
-            <zipfileset src="dist/lib/beansbinding-1.2.1.jar" excludes="META-INF/*"/>
-
+            <zipfileset src="dist/lib/sqlite-jdbc-3.42.0.0.jar" excludes="META-INF/*"/>
             <manifest>
                 <attribute name="Main-Class" value="pis.projekat.Pocetna_stranica"/>
             </manifest>

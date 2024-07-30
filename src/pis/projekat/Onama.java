@@ -1,8 +1,8 @@
 
 package pis.projekat;
-
 import java.awt.Color;
 import javax.swing.JInternalFrame;
+
 
 
 public class Onama extends JInternalFrame {
@@ -67,7 +67,6 @@ public class Onama extends JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CRM Model");
 
-        ok.setBackground(new java.awt.Color(255, 255, 255));
         ok.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         ok.setText("OK");
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +77,7 @@ public class Onama extends JInternalFrame {
 
         jLabel10.setFont(new java.awt.Font("Castellar", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("CRM 1.3.2");
+        jLabel10.setText("CRM 1.4.0");
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,7 +204,7 @@ public class Onama extends JInternalFrame {
     
    //Otvaranje verzije klase
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        new Verzijeapp().setVisible(true);
+        new Verzije_app().setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     

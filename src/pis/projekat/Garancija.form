@@ -33,7 +33,8 @@
                   <Component id="jSeparator2" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Component id="jLabel11" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -46,44 +47,42 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel6" min="-2" pref="148" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField4" min="-2" pref="205" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel7" min="-2" pref="137" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jLabel8" min="-2" pref="148" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane1" min="-2" pref="166" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="jFormattedTextField2" min="-2" pref="88" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
-                                              <Component id="jLabel10" min="-2" pref="88" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jFormattedTextField3" min="-2" pref="94" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="email_txt" min="-2" pref="205" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel5" min="-2" pref="148" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextField1" min="-2" pref="137" max="-2" attributes="0"/>
+                                      <Component id="telefon_txt" min="-2" pref="137" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel4" min="-2" pref="148" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" pref="205" max="-2" attributes="0"/>
+                                      <Component id="adresa_txt" min="-2" pref="205" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel3" min="-2" pref="148" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="205" max="-2" attributes="0"/>
+                                      <Component id="naziv_txt" min="-2" pref="205" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel7" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="garancija_txt" min="-2" pref="88" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
+                                              <Component id="jLabel10" min="-2" pref="88" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="racun_txt" min="-2" pref="94" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="jLabel11" alignment="0" min="-2" pref="189" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                   </Group>
@@ -92,16 +91,16 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
-              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="ima_garanciju" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               <Component id="jLabel9" min="-2" pref="198" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="nema_garanciju" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="128" max="-2" attributes="0"/>
+              <Component id="posalji_btn" min="-2" pref="128" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="323" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -119,51 +118,52 @@
               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="naziv_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="adresa_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="telefon_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="email_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ima_garanciju" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nema_garanciju" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="racun_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="garancija_txt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="93" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="posalji_btn" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -186,9 +186,9 @@
         <Property name="text" type="java.lang.String" value="molimo  Vas popunite slede&#x107;i obrazac sa detaljnim informacijama."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="naziv_txt">
       <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField1KeyTyped"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="naziv_txtKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -196,7 +196,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ime i prezime"/>
+        <Property name="text" type="java.lang.String" value="Naziv"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -207,7 +207,7 @@
         <Property name="text" type="java.lang.String" value="Adresa"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="adresa_txt">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -225,7 +225,7 @@
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="email_txt">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -240,7 +240,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Opis nastalog problema"/>
+        <Property name="text" type="java.lang.String" value="Opis problema"/>
         <Property name="toolTipText" type="java.lang.String" value="Po mogu&#x107;nosti &#x161;to detaljniji"/>
       </Properties>
     </Component>
@@ -251,7 +251,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="opis_problema">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
@@ -269,7 +269,7 @@
         <Property name="text" type="java.lang.String" value="    Da li posedujete garanciju?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="ima_garanciju">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -280,10 +280,10 @@
         <Property name="text" type="java.lang.String" value="Da"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ima_garancijuActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+    <Component class="javax.swing.JRadioButton" name="nema_garanciju">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -294,7 +294,7 @@
         <Property name="text" type="java.lang.String" value="Ne"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nema_garancijuActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -305,7 +305,7 @@
         <Property name="text" type="java.lang.String" value="&#x160;ifra ra&#x10d;una"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="posalji_btn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
@@ -316,7 +316,7 @@
         <Property name="text" type="java.lang.String" value=" Po&#x161;alji"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="posalji_btnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
@@ -327,26 +327,26 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="        Li&#x10d;ni podaci"/>
+        <Property name="text" type="java.lang.String" value="        Podaci o kupcu"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+    <Component class="javax.swing.JFormattedTextField" name="telefon_txt">
       <Properties>
-        <Property name="formatterFactory" preCode="try {&#xa;MaskFormatter maska= new javax.swing.text.MaskFormatter(&quot;0##/####-###&quot;);&#xa;maska.setPlaceholderCharacter(&apos;X&apos;);&#xa;jFormattedTextField1 = new javax.swing.JFormattedTextField(maska);" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
+        <Property name="formatterFactory" preCode="try {&#xa;MaskFormatter maska= new javax.swing.text.MaskFormatter(&quot;0##/####-###&quot;);&#xa;maska.setPlaceholderCharacter(&apos;X&apos;);&#xa;telefon_txt = new javax.swing.JFormattedTextField(maska);" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField3">
+    <Component class="javax.swing.JFormattedTextField" name="racun_txt">
       <Properties>
-        <Property name="formatterFactory" preCode="try {&#xa;MaskFormatter maska= new javax.swing.text.MaskFormatter(&quot;##-####&quot;);&#xa;maska.setPlaceholderCharacter(&apos;_&apos;);&#xa;jFormattedTextField3 = new javax.swing.JFormattedTextField(maska);" postCode="jFormattedTextField3.setEditable(false);&#xa;} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
+        <Property name="formatterFactory" preCode="try {&#xa;MaskFormatter maska= new javax.swing.text.MaskFormatter(&quot;##-####&quot;);&#xa;maska.setPlaceholderCharacter(&apos;_&apos;);&#xa;racun_txt = new javax.swing.JFormattedTextField(maska);" postCode="racun_txt.setEditable(false);&#xa;} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+    <Component class="javax.swing.JFormattedTextField" name="garancija_txt">
       <Properties>
-        <Property name="formatterFactory" preCode="try {&#xa;MaskFormatter maska= new javax.swing.text.MaskFormatter(&quot;##-###&quot;);&#xa;maska.setPlaceholderCharacter(&apos;_&apos;);&#xa;jFormattedTextField2 = new javax.swing.JFormattedTextField(maska);" postCode="jFormattedTextField2.setEditable(false);&#xa;} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
+        <Property name="formatterFactory" preCode="try {&#xa;MaskFormatter maska= new javax.swing.text.MaskFormatter(&quot;##-###&quot;);&#xa;maska.setPlaceholderCharacter(&apos;_&apos;);&#xa;garancija_txt = new javax.swing.JFormattedTextField(maska);" postCode="garancija_txt.setEditable(false);&#xa;} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}"/>
       </Properties>
     </Component>
   </SubComponents>
